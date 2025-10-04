@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trin 1 — Indledningen</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Trin 1 — Indledningen</h1>
+      <p class="lead">Velkommen. Din rejse begynder i mørket. Læs ledetråden og find ordet.</p>
+      <div class="hint">Ledetråd: 'Byen ved vandet hvor kronen hviler.'</div>
+
+      <div class="input-row">
+        <input id="answer" type="text" placeholder="Skriv dit svar her...">
+        <button class="btn" id="check">Tjek</button>
+        <button class="btn secondary" id="visurl">Vis næste URL</button>
+      </div>
+
+      <div id="msg" class="reveal" style="display:none;"></div>
+
+      <div class="footer">
+        <div class="small">Trin 1 af 5 — Mystisk kodejagt</div>
+        <div class="small">Tip: svar skal være på dansk, små bogstaver accepteres</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+const correct = ["københavn", "koebenhavn"];
+
+function showMessage(text, isSuccess){
+  const el = document.getElementById('msg');
+  el.style.display = 'block';
+  el.innerText = text;
+  el.className = 'reveal ' + (isSuccess ? 'success' : 'fail');
+}
+
+document.getElementById('check').addEventListener('click', ()=>{
+  const val = document.getElementById('answer').value.trim().toLowerCase();
+  let ok = false;
+  if(Array.isArray(correct)){
+    for(let c of correct){ if(val === c){ ok = true; break; } }
+  } else { ok = (val === correct); }
+
+  if(ok){
+    showMessage('Rigtigt! Du sendes videre...', true);
+    setTimeout(()=>{ window.location.href = '../trin2/'; }, 900);
+  } else {
+    showMessage('Forkert svar — prøv igen.', false);
+  }
+});
+
+document.getElementById('visurl').addEventListener('click', ()=>{
+  alert('Næste trin er: ../trin2/');
+});
+</script>
+</body>
+</html>

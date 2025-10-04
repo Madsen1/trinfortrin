@@ -1,0 +1,32 @@
+
+/* styles.css - Mørk, mystisk tema */
+:root{
+  --bg:#0b0f12;
+  --card:#111416;
+  --accent:#8be9fd;
+  --muted:#9aa6ac;
+  --glow: 0 0 18px rgba(139,233,253,0.08);
+  --danger:#ff6b6b;
+  --success:#7efc8d;
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:var(--font-stack);background:linear-gradient(180deg,#050607 0%, #0b0f12 100%);color:#e6f2f8}
+.container{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{width:820px;max-width:95%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:28px;box-shadow:var(--glow);border:1px solid rgba(255,255,255,0.03)}
+h1{font-size:28px;margin:0 0 8px;color:var(--accent);letter-spacing:0.6px}
+.lead{color:var(--muted);margin:0 0 18px}
+.hint{background:linear-gradient(90deg, rgba(139,233,253,0.03), rgba(126,252,141,0.01));padding:12px;border-radius:8px;border:1px solid rgba(139,233,253,0.04);margin-bottom:18px;color:#cfeef6}
+.input-row{display:flex;gap:10px;align-items:center}
+.input-row input[type="text"]{flex:1;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:inherit;font-size:16px}
+.btn{padding:10px 14px;border-radius:8px;border:none;background:var(--accent);color:#041018;font-weight:600;cursor:pointer;box-shadow:var(--glow)}
+.btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+.footer{margin-top:18px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center}
+.small{font-size:13px;color:var(--muted)}
+
+.reveal{margin-top:16px;padding:12px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.03);color:#dffcf0}
+.success{color:var(--success);font-weight:700}
+.fail{color:var(--danger);font-weight:700}
+.codehint{font-family:monospace;background:rgba(255,255,255,0.02);padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.03);display:inline-block}
